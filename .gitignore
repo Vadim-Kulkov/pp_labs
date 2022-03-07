@@ -2,4 +2,6 @@
 .gradle/
 /build/
 *.iml
+*.class
+Out
 git remote add origin https://github.com/Vadim-Kulkov/pp_labs.git

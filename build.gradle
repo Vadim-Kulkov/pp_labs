@@ -9,7 +9,7 @@ repositories {
     mavenCentral()
 }
 java {
-    version(11)
+    version(JavaVersion.VERSION_11)
 }
 
 dependencies {
