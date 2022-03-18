@@ -6,6 +6,9 @@ import java.io.*;
 
 public class Serializator {
 
+    private Serializator() {
+    }
+
     /**
      * Вывод сериализованных объектов
      */

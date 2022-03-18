@@ -1,10 +1,14 @@
 package fourth_lab.services;
 
+import fifth_lab.third_task.SyncPerson;
 import fourth_lab.interfaces.Person;
 
 import java.io.*;
 
 public class ReaderWriter {
+
+    private ReaderWriter() {
+    }
 
     public static void output(Person o, OutputStream out) {
         try (ObjectOutputStream outputStream = new ObjectOutputStream(out)) {
@@ -64,5 +68,12 @@ public class ReaderWriter {
             }
         }
         return null;
+    }
+
+    /**
+     * Метод, возвращающий обёртку
+     */
+    public Person getSyncPerson(Person person) {
+        return new SyncPerson(person);
     }
 }

@@ -1,0 +1,1 @@
+Student{examScores=[20, 40, 60], sign=Ivanov, id=328}

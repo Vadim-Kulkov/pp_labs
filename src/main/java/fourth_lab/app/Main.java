@@ -7,14 +7,9 @@ import fourth_lab.services.ReaderWriter;
 import fourth_lab.services.Serializator;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-
-    private static final List<Person> persons = new ArrayList<>();
 
     public static void main(String[] args) {
         Person person;
@@ -55,15 +50,11 @@ public class Main {
         System.out.println("Байтовые методы");
         try (FileOutputStream fileOutputStream = new FileOutputStream("database.bin")) {
             ReaderWriter.output(person, fileOutputStream);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
         try (FileInputStream fileInputStream = new FileInputStream("database.bin")) {
             System.out.println(ReaderWriter.input(fileInputStream));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -100,12 +91,5 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * Вывести полную информацию об объектах массива
-     */
-    private static void showInformationAboutPersons(Person[] persons) {
-        Arrays.stream(persons).forEach(System.out::println);
     }
 }
