@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.io.Serializable;
 import java.io.Writer;
 
-public interface Person extends Serializable {
+public interface Person extends Serializable, Iterable<Integer> {
 
     int[] getExamScores();
 

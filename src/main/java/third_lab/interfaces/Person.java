@@ -16,5 +16,5 @@ public interface Person {
 
     void setId(int id);
 
-    int findAverageExamScores() throws SpecialException, fourth_lab.exceptions.SpecialException;
+    int findAverageExamScores() throws SpecialException;
 }

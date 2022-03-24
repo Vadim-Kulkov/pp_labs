@@ -1,49 +1,25 @@
 package sixth_lab.app;
 
-import sixth_lab.entities.Entrant;
 import sixth_lab.entities.Student;
 import sixth_lab.interfaces.Person;
 import sixth_lab.services.ReaderWriter;
 import sixth_lab.services.Serializator;
 
 import java.io.*;
-import java.util.Scanner;
+import java.util.Iterator;
 
 public class Main {
 
     public static void main(String[] args) {
-        Person person;
-        String type;
-        String sigh;
-        int[] examScores;
-        int id;
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Введите тип объекта Entrant/Student: ");
-        type = scanner.nextLine();
-
-        System.out.print("Введите баллы за экзамены через пробел: ");
-        String[] value = scanner.nextLine().split(" ");
-        examScores = new int[value.length];
-        for (int i = 0; i < value.length; i++) {
-            examScores[i] = Integer.parseInt(value[i]);
+        Person person = new Student(new int[]{100, 200, 300, 500, 1000}, "Ivanov", 12);
+        for (int i : person.getExamScores()) {
+            System.out.print(i + " ");
         }
-
-        System.out.print("Введите фамилию: ");
-        sigh = scanner.nextLine();
-
-        System.out.print("Введите id: ");
-        id = Integer.parseInt(scanner.nextLine());
-
-        if (type.contains("Entrant")) {
-            person = new Entrant(examScores, sigh, id);
-        } else {
-            person = new Student(examScores, sigh, id);
+        System.out.println();
+        Iterator<Integer> iterator = person.iterator();
+        while (iterator.hasNext()) {
+            System.out.print(iterator.next() + " ");
         }
-
-        testReadeWriterBytes(person);
-        testReadeWriterSymbols(person);
-        serializationTest(person);
     }
 
     private static void testReadeWriterBytes(Person person) {

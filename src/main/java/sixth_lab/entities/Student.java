@@ -3,11 +3,13 @@ package sixth_lab.entities;
 import sixth_lab.exceptions.SpecialException;
 import sixth_lab.exceptions.SpecialRuntimeException;
 import sixth_lab.interfaces.Person;
+import sixth_lab.services.ExamScoresIterator;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Writer;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Objects;
 
 public class Student implements Person {
@@ -93,6 +95,16 @@ public class Student implements Person {
                 e.printStackTrace();
             }
         }
+    }
+
+    /**
+     * Returns an iterator over elements of type {@code T}.
+     *
+     * @return an Iterator.
+     */
+    @Override
+    public Iterator<Integer> iterator() {
+        return new ExamScoresIterator(this.examScores);
     }
 
     /**
