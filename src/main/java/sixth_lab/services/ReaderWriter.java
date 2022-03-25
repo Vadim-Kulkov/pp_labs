@@ -1,12 +1,20 @@
 package sixth_lab.services;
 
+import sixth_lab.entities.PersonDecorator;
+import sixth_lab.interfaces.Factory;
 import sixth_lab.interfaces.Person;
 
 import java.io.*;
 
 public class ReaderWriter {
 
+    private static Factory factory;
+
     private ReaderWriter() {
+    }
+
+    public ReaderWriter(Factory factory) {
+        ReaderWriter.factory = factory;
     }
 
     public static void output(Person o, OutputStream out) {
@@ -67,5 +75,21 @@ public class ReaderWriter {
             }
         }
         return null;
+    }
+
+    public static Person createInstance() {
+        return factory.createInstance();
+    }
+
+    public Person unModifiable(Person o) {
+        return new PersonDecorator(o);
+    }
+
+    public Factory getFactory() {
+        return factory;
+    }
+
+    public void setFactory(Factory factory) {
+        this.factory = factory;
     }
 }

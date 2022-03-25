@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 
 public class ExamScoresIterator implements Iterator<Integer> {
 
-    private Integer[] examScoresList;
+    private final Integer[] examScoresList;
 
     private int index;
 
