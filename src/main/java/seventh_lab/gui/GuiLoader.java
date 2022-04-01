@@ -18,9 +18,6 @@ public class GuiLoader extends JFrame {
     private JTextField firstBound = new JTextField("", 10);
     private JTextField secondBound = new JTextField("", 10);
 
-    private JLabel victoryText = new JLabel("Victory!");
-    private JLabel cheatText = new JLabel("Cheating!");
-
     JTextArea generatedNum = new JTextArea();
 
     private JButton radioPick = new JButton("Pick style");
